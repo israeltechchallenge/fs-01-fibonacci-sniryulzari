@@ -3,6 +3,7 @@ let x = document.getElementById("userNum");
 let btn = document.querySelector('#btn');
 let spinner = document.getElementById("spinner");
 let error42 = document.getElementById("error42");
+console.log('Hi')
 
 
 btn.addEventListener('click', function fetchUrl(){
