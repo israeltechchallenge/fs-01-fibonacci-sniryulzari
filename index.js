@@ -41,7 +41,6 @@ btn.addEventListener('click', function fetchUrl(){
     errorMessage();
 }
 })
-
 function fetchUrlRes(){
 const Fibonacci_URL_Results = `http://localhost:5050/getFibonacciResults`;
     fetch(Fibonacci_URL_Results)
