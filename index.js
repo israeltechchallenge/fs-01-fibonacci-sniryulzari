@@ -3,7 +3,7 @@ let x = document.getElementById("userNum");
 let btn = document.querySelector('#btn');
 let spinner = document.getElementById("spinner");
 let error42 = document.getElementById("error42");
-console.log('Hi')
+let resultsHistory = document.getElementById("resultsHistory");
 
 
 btn.addEventListener('click', function fetchUrl(){
@@ -11,6 +11,7 @@ btn.addEventListener('click', function fetchUrl(){
     spinner.style.visibility = 'visible';
     error.style.visibility = 'hidden';
     error42.style.visibility = 'hidden';
+
     const Fibonacci_URL = `http://localhost:5050/fibonacci/${x.value}`;
     fetch(Fibonacci_URL)
         .then(response => response.json())
@@ -18,6 +19,7 @@ btn.addEventListener('click', function fetchUrl(){
         spinner.style.visibility = 'hidden';
         fibonacciNumber.innerHTML = data.result;
         fibonacciNumber.style.visibility = 'visible';
+        fetchUrlRes();//milestone 6
     })
     .catch(err => {
         console.error(err);
@@ -40,7 +42,19 @@ btn.addEventListener('click', function fetchUrl(){
 }
 })
 
+function fetchUrlRes(){
+const Fibonacci_URL_Results = `http://localhost:5050/getFibonacciResults`;
+    fetch(Fibonacci_URL_Results)
+        .then(response => response.json())
+        .then(data => { 
+        let elements = '';
+        for (let retrivingData of data.results) {
+        elements += `<li class="border-bottom p-3 ms-1">The Ficonacci of <b>${retrivingData.number}</b> is <b>${retrivingData.result}</b>. Calculated at:${new Date(retrivingData.createdDate)}</li>`}
+        resultsHistory.innerHTML += elements;})
 
-
+    }
+window.onload = function loading(){
+    fetchUrlRes();
+}; 
 
 
