@@ -1,0 +1,47 @@
+#inputBox {
+  width: 86px;
+  height: 38px;
+}
+#userNum {
+  display: flex;
+  flex-basis: 10%;
+}
+#btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#fibonacciNumber {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 24px;
+}
+#serverError {
+  font-size: 15px;
+  color: #d9534f;
+  display: flex;
+  flex: 1;
+}
+.above51Error {
+  display: flex;
+  flex-direction: column;
+}
+#error {
+  visibility: hidden;
+  display: flex;
+  font-size: 16px;
+  width: 180px;
+  height: 33px;
+  position: relative;
+  left: 135px;
+}
+#resultsHistory {
+  list-style-type: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input[type="number"] {
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield;
+}
